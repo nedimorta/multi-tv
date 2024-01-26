@@ -1,0 +1,18 @@
+<!-- templates/index.tmpl -->
+<!doctype html>
+<html lang="tr">
+<head>
+    <!-- Metadata and links -->
+</head>
+<body class="text-bg-dark">
+    <div class="{{.RowClass}}">
+        <!-- Dynamically generate channel iframes -->
+        {{range $name, $source := .Channels}}
+            <div class="col text-center p-0">
+                <iframe src="https://www.youtube-nocookie.com/embed/{{$source}}?autoplay={{if .Autoplay}}1{{else}}0{{end}}&mute=1" frameborder="0" allowfullscreen></iframe>
+            </div>
+        {{end}}
+    </div>
+    <!-- Rest of the body -->
+</body>
+</html>
