@@ -21,8 +21,13 @@ func main() {
 			"TRT Haber":    "Rc5qrxlJZzc",
 		}
 
-		channelNames, channelNamesExist := context.QueryArray("channelNames")
-		channelSources, channelSourcesExist := context.QueryArray("channelSources")
+		// Retrieve query parameters as slices
+		channelNames := context.QueryArray("channelNames")
+		channelSources := context.QueryArray("channelSources")
+
+		// Check if the slices are empty to determine if the parameters were provided
+		channelNamesExist := len(channelNames) > 0
+		channelSourcesExist := len(channelSources) > 0
 
 		if channelNamesExist && channelSourcesExist {
 			channelsMap = make(map[string]string)
